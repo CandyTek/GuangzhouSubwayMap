@@ -4,4 +4,4 @@
 
 支持 Android 4.3+
 
-下载：
+[安装包下载](https://github.com/CandyTek/GuangzhouSubwayMap/releases/latest)
