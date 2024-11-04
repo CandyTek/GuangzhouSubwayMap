@@ -4,11 +4,11 @@
 	android:layout_height="match_parent"
 	>
 
-	<com.bm.library.PhotoView
-		android:id="@+id/photoview"
-		android:layout_height="match_parent"
-		android:layout_width="match_parent"
-		android:src="@drawable/pic"
-		/>
+<!-- 	<com.bm.library.PhotoView -->
+<!-- 		android:id="@+id/photoview" -->
+<!-- 		android:layout_height="match_parent" -->
+<!-- 		android:layout_width="match_parent" -->
+<!-- 		android:src="@drawable/pic" -->
+<!-- 		/> -->
 
 </FrameLayout>

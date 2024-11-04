@@ -11,8 +11,8 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-// import com.bumptech.glide.load.engine.DiskCacheStrategy;
 // import com.bumptech.glide.Glide;
+// import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.xiaoming.gzmetro.databinding.ActivityMainBinding;
 
 /** {@link R.layout#activity_main} */
@@ -29,15 +29,16 @@ public class MainActivity extends Activity {
 		transparentStatusBar(this);
 		transparentNavBar(this);
 		// Glide.with(binding.photoview)
+		// Glide.with(this)
 		// 		.load(R.drawable.pic)
 		// 		.skipMemoryCache(true)
 		// 		.diskCacheStrategy(DiskCacheStrategy.NONE)
 		// 		.override(5396,5394)
 		// 		.into(binding.photoview);
 
-		binding.photoview.setImageDrawable(getResources().getDrawable(R.drawable.pic));
-		binding.photoview.enable();
-		binding.photoview.setMaxScale(8);
+		// binding.photoview.setImageDrawable(getResources().getDrawable(R.drawable.pic));
+		// binding.photoview.enable();
+		// binding.photoview.setMaxScale(8);
 	}
 
 	@Override
