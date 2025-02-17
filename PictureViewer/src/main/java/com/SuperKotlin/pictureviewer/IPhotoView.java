@@ -24,9 +24,10 @@ import android.widget.ImageView;
 
 public interface IPhotoView {
 
-    public static final float DEFAULT_MAX_SCALE = 10.0f;
-    public static final float DEFAULT_MID_SCALE = 10f;
-    public static final float DEFAULT_MIN_SCALE = 1.0f;
+    /** 这里是设置图片最大缩放值的地方 */
+    public static final float DEFAULT_MAX_SCALE = 6.0f;
+    public static final float DEFAULT_MID_SCALE = 6f;
+    public static final float DEFAULT_MIN_SCALE = 0.5f;
     public static final int DEFAULT_ZOOM_DURATION = 200;
 
     /**

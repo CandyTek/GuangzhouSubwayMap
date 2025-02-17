@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <cc.shinichi.library.view.helper.DragCloseView
+        android:id="@+id/fingerDragHelper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--图片-->
+        <cc.shinichi.library.view.subsampling.SubsamplingScaleImageView
+            android:id="@+id/static_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!--动图-->
+        <cc.shinichi.library.view.photoview.PhotoView
+            android:id="@+id/anim_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerInside"
+            android:visibility="gone" />
+
+        <!--视频-->
+<!--         <androidx.media3.ui.PlayerView -->
+<!--             android:id="@+id/video_view" -->
+<!--             android:layout_width="match_parent" -->
+<!--             android:layout_height="match_parent" -->
+<!--             app:show_timeout="1500" -->
+<!--             app:controller_layout_id="@layout/sh_media_controller" /> -->
+
+    </cc.shinichi.library.view.helper.DragCloseView>
+
+    <ProgressBar
+        android:id="@+id/progress_view"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:indeterminateTint="#ffffff"
+        android:indeterminateTintMode="src_in" />
+
+</FrameLayout>

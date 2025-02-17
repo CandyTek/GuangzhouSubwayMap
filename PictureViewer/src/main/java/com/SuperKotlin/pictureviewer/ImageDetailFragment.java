@@ -2,16 +2,17 @@ package com.SuperKotlin.pictureviewer;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.fragment.app.Fragment;
+
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 // import com.bumptech.glide.request.transition.Transition;
 
 public class ImageDetailFragment extends Fragment {
@@ -82,24 +83,32 @@ public class ImageDetailFragment extends Fragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		// if (!TextUtils.isEmpty(mImageUrl)) {
+		int maxBitmapSize = BitmapUtils.getMaxBitmapSize(getContext());
+		Log.w("MaxBitmapSize", "Max Bitmap Size: " + maxBitmapSize + "px");
+		// RequestOptions temp;
+		if(maxBitmapSize>5794){
+			// temp = new RequestOptions().override(5794, 5791);
+		}else{
+			// temp = new RequestOptions().override(maxBitmapSize, maxBitmapSize);
+		}
+
+		try {
 			Glide.with(getActivity())
-					// .load(mImageUrl)
 					.load(R.drawable.subway)
-					.asBitmap()
+					// .asBitmap()
 					.placeholder(mImageLoading)
 					.error(mImageLoading)
-					.into(new SimpleTarget<Bitmap>() {
-						@Override
-						public void onResourceReady(Bitmap bitmap,GlideAnimation<? super Bitmap> glideAnimation) {
-							mBitmap = bitmap;
-							mImageView.setImageBitmap(mBitmap);
-							mAttacher.update();
-						}
-					});
-		// } else {
+					.override(Math.min(maxBitmapSize,5794),Math.min(maxBitmapSize,5791))
+					// .apply(temp) // 设置图片宽高
+					.diskCacheStrategy(DiskCacheStrategy.ALL)  // 使用磁盘缓存策略
+					.into(mImageView);
+		}
+		catch (Exception e) {
+			
+		}
+
+		
 		// 	mImageView.setImageResource(mImageLoading);
-		// }
 	}
 
 }

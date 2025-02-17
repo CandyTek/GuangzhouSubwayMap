@@ -4,14 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class ImagePagerActivity extends FragmentActivity {
         CharSequence text = getString(R.string.viewpager_indicator, 1, mPager.getAdapter().getCount());
         indicator.setText(text);
         // 更新下标
-        mPager.setOnPageChangeListener(new OnPageChangeListener() {
+        mPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             @Override
             public void onPageScrollStateChanged(int arg0) {
@@ -84,7 +85,7 @@ public class ImagePagerActivity extends FragmentActivity {
 
         public List<String> fileList;
 
-        public ImagePagerAdapter(FragmentManager fm, List<String> fileList) {
+        public ImagePagerAdapter(FragmentManager fm,List<String> fileList) {
             super(fm);
             this.fileList = fileList;
         }

@@ -1,6 +1,7 @@
 package com.SuperKotlin.pictureviewer;
 
-import android.support.annotation.DrawableRes;
+
+import androidx.annotation.DrawableRes;
 
 import java.io.Serializable;
 import java.util.ArrayList;

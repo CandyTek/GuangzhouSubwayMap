@@ -1,9 +1,14 @@
 package com.xiaoming.gzmetro;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -36,10 +41,24 @@ public class MainActivity extends Activity {
 		// 		.override(5396,5394)
 		// 		.into(binding.photoview);
 
-		// binding.photoview.setImageDrawable(getResources().getDrawable(R.drawable.pic));
-		// binding.photoview.enable();
-		// binding.photoview.setMaxScale(8);
+		// binding.photoview.setImageDrawable(getResources().getDrawable(R.drawable.subway));
+
+		int maxBitmapSize = BitmapUtils.getMaxBitmapSize(this);
+		if(maxBitmapSize>5794){
+			 // Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.subway);
+			binding.photoview.setImageDrawable(getResources().getDrawable(R.drawable.subway));
+		}else{
+			Bitmap bitmap =BitmapUtils.decodeSampledBitmapFromResource(this,R.drawable.subway,maxBitmapSize,maxBitmapSize);
+			binding.photoview.setImageBitmap(bitmap);
+		}
+
+		
+
+
+		binding.photoview.enable();
+		binding.photoview.setMaxScale(10);
 	}
+
 
 	@Override
 	public void onBackPressed() {
